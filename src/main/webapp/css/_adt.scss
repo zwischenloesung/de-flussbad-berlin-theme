@@ -2,8 +2,8 @@
     _adt.scss: Configuration of application display templates of the flussbad-theme
 
     Created:    2017-09-13 19:02 by Christian Berndt
-    Modified:   2017-10-31 22:12 by Christian Berndt
-    Version:    0.1.7
+    Modified:   2018-01-17 16:32 by Christian Berndt
+    Version:    0.1.9
 */
 
 @import "custom_mixins";
@@ -13,7 +13,7 @@
     
     .articles {
         
-        font-size: $mobile-default-font-size;    
+        font-size: $default-font-size;    
         margin-left: -15px;
         margin-right: -15px;
         
@@ -28,8 +28,8 @@
         }
         
         h1 {
-            font-size: $mobile-h2-font-size;
-            line-height: $mobile-lead-line-height;
+            font-size: $h2-font-size;
+            line-height: $lead-line-height;
             margin-top: 10px;       
         }
                 
@@ -47,8 +47,8 @@
         }
         
         .summary {
-            font-size: $mobile-lead-font-size;
-            line-height: $mobile-lead-line-height;        
+            font-size: $lead-font-size;
+            line-height: $lead-line-height;        
         }
     }
     
@@ -120,18 +120,35 @@
     }
     
     .events-small {
-    
+
+        margin-left: -15px;
+        margin-right: -15px;
+        padding-top: 2em;
         text-align: center;
         
+        .alert {
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+        
+        h1 {
+            padding: 1em 0;
+        }
+        
         h2 {
-            font-size: $lead-font-size; 
+            font-size: 21px;
+            line-height: 28px; 
             
             &.date {
                 font-family: $regular-font-family; 
                 font-weight: normal;
-            }      
+                margin-bottom: 0;
+            }
+            
+            &.title {
+                margin-top: 0; 
+            }     
         }
-        
     }
         
     .statements {
@@ -240,31 +257,38 @@
         color: $navigation-font-color;
         cursor: pointer;                     
         font-family: $regular-font-family;
-        font-size: $h2-font-size;
-        padding: 17.5px 25px;
+        font-size: 28px;
+        padding: 15px 25px;
         position: fixed; 
         right: 0; 
         top: $nav-height;
         z-index: 100;
         
         .toggle-button {
-    
-          -webkit-transition: -webkit-transform 0.2s ease-in-out;
-             -moz-transition: -moz-transform 0.2s ease-in-out;
-               -o-transition: -o-transform 0.2s ease-in-out;  
-                  transition: 0.2s ease-in-out;
             
-            @include rotate(0);             
+            display: block;
+            
+            -webkit-transition: -webkit-transform 0.2s ease-in-out;
+            -moz-transition: -moz-transform 0.2s ease-in-out;
+            -o-transition: -o-transform 0.2s ease-in-out;  
+            transition: 0.2s ease-in-out;
+                  
+            @include rotate(45deg);                         
+            
+            &.collapsed {
+                @include rotate(0);             
+            }
         }      
         
-        &.manually--closed .toggle-button,
-        &.headroom--unpinned .toggle-button {
-          -webkit-transition: -webkit-transform 0.2s ease-in-out;
-             -moz-transition: -moz-transform 0.2s ease-in-out;
-               -o-transition: -o-transform 0.2s ease-in-out;  
-                  transition: 0.2s ease-in-out;
+/*         &.collapsed, */
+/*         &.manually--closed .toggle-button, */
+/*         &.headroom--unpinned .toggle-button { */
+/*           -webkit-transition: -webkit-transform 0.2s ease-in-out; */
+/*              -moz-transition: -moz-transform 0.2s ease-in-out; */
+/*                -o-transition: -o-transform 0.2s ease-in-out;   */
+/*                   transition: 0.2s ease-in-out; */
 
-            @include rotate(0deg);
-        }      
+/*             @include rotate(0deg); */
+/*         }       */
     }   
 }

@@ -3,17 +3,63 @@
     of the flussbad-theme.
 
     Created:    2017-09-07 17:21 by Christian Berndt
-    Modified:   2017-09-19 16:35 by Christian Berndt
-    Version:    1.0.8
+    Modified:   2018-01-18 15:16 by Christian Berndt
+    Version:    1.1.1
 */
 
 @import "custom_mixins";
 @import "variables";
 
 h3 {
-    font-size: 14px;
+    font-size: $h3-font-size;
     letter-spacing: .1em;
     text-transform: uppercase;
+}
+
+.article {
+    
+    margin-left: -15px;
+    margin-right: -15px;
+    
+    .caption {
+    
+        font-size: $small-font-size;
+        color: $color-gray-green;
+        margin-top: -1em;
+        padding-bottom: 1em;
+    }
+    
+    .content {
+        padding: 20px 15px 30px;
+    }
+    
+    h1 {
+        margin-bottom: 1em;
+    }
+    
+    .keyvisual {
+        width: 100%;
+        height: calc(100vh - #{$nav-height}) !important;
+        overflow: hidden;
+        
+        @include background-cover();
+    }
+    
+    &.with-keyvisual {
+    
+        > .container {
+            background-color: transparent;
+            margin-top: $container-push;
+            position: relative; 
+            z-index:2;
+            
+            .row {
+                background-color: #fff;
+                margin-left: 0; 
+                margin-right: 0;
+            }
+        }
+    }
 }
 
 .button {
@@ -50,16 +96,18 @@ h3 {
     
     margin-left: -15px;
     margin-right: -15px;
+    padding-bottom: 1em;
     text-align: center;
     
     .abstract {
     
         margin-bottom: 1em;
-        padding: 0 15px 30px 15px;
+        padding: 0 15px 30px;
       
     }
     
     .btn-default {
+    
         border: 2px solid $navigation-font-color; 
         border-radius: 2px;
         
@@ -79,9 +127,13 @@ h3 {
         }
     }
     
+    h2 {
+        margin-bottom: 20px;
+    }
+    
     .keyvisual {
     
-        height: 80vh;
+        height: 100vh;
         
         @include background-cover(); 
         
@@ -186,4 +238,11 @@ h3 {
             }
         }
     }
+}
+
+.introduction {
+    
+    margin-left: -15px;
+    margin-right: -15px;
+    
 }
